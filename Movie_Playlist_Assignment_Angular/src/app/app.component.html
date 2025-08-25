@@ -1,0 +1,45 @@
+<app-songs></app-songs>
+
+<!-- Navbar -->
+<mat-toolbar color="primary">
+  <span> Music Playlist</span>
+  <span class="spacer"></span>
+  <button mat-button>Home</button>
+  <button mat-button>Songs</button>
+  <button mat-button>Artists</button>
+  <button mat-button>Albums</button>
+</mat-toolbar>
+
+<!-- Filters -->
+<div style="text-align:center; margin:20px;">
+  <mat-form-field appearance="outline">
+    <mat-label>Filter by Artist</mat-label>
+    <input matInput [(ngModel)]="filterArtist" placeholder="Artist name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" style="margin-left:10px;">
+    <mat-label>Filter by Album</mat-label>
+    <input matInput [(ngModel)]="filterAlbum" placeholder="Album name">
+  </mat-form-field>
+</div>
+
+<!-- Songs Cards -->
+<div class="song-container">
+  <mat-card *ngFor="let song of filteredSongs" [ngClass]="{'top-rated': song.rating === 5}">
+    <mat-card-header>
+      <mat-card-title>{{song.name}}</mat-card-title>
+      <mat-card-subtitle>{{song.artist}} - {{song.album}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p>Duration: {{song.duration}}</p>
+      <p>Rating: {{song.rating}} ⭐</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-icon-button color="primary">
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

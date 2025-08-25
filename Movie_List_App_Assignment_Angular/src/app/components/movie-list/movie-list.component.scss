@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;      // spacing between cards
+  padding: 20px;
+}
+
+.movie-card {
+  width: 250px;          // fixed card width
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-card img {
+  width: 100%;           // image fits card width
+  height: auto;          // maintain aspect ratio
+  object-fit: cover;     // crop if needed
+}
+
+.top-rated {
+  border: 2px solid gold;
+}

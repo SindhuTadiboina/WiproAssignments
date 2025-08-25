@@ -1,0 +1,30 @@
+<div class="filter-container">
+  <mat-form-field appearance="outline">
+    <mat-label>Filter by Artist</mat-label>
+    <input matInput [(ngModel)]="filterArtist" placeholder="Enter artist name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Filter by Album</mat-label>
+    <input matInput [(ngModel)]="filterAlbum" placeholder="Enter album name" />
+  </mat-form-field>
+</div>
+
+<div class="song-container">
+  <mat-card *ngFor="let song of filteredSongs" [ngClass]="{'top-rated': song.rating === 5}">
+    <mat-card-header>
+      <mat-card-title>{{ song.name }}</mat-card-title>
+      <mat-card-subtitle>{{ song.artist }} - {{ song.album }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <p><strong>Duration:</strong> {{ song.duration }}</p>
+      <p><strong>Rating:</strong> ⭐ {{ song.rating }}</p>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-button color="primary">Play</button>
+      <button mat-button color="accent">Add to Playlist</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
