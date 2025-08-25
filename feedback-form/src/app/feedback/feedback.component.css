@@ -1,0 +1,27 @@
+.feedback-card {
+   
+  max-width: 600px;           /* Limit the card width */
+  margin: 50px auto;          /* Center horizontally and add top margin */
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  background-color: white;
+  text-align: center;
+}
+
+mat-form-field {
+  width: 30%;               /* Fields take full width of card */
+  margin-bottom: 15px;
+}
+
+button {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.thankyou-msg {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+  text-align: center;
+}
