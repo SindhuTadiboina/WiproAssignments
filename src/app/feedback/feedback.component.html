@@ -1,0 +1,40 @@
+<mat-card>
+  <h2>Feedback Form</h2>
+
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="full-width">
+
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error *ngIf="feedbackForm.get('name')?.invalid">Name is required</mat-error>
+    </mat-form-field> <br>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="feedbackForm.get('email')?.invalid">Enter valid email</mat-error>
+    </mat-form-field> <br>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Subject</mat-label>
+      <input matInput formControlName="subject" maxlength="40" />
+      <mat-hint align="end">{{feedbackForm.get('subject')?.value?.length || 0}} / 40</mat-hint>
+      <mat-error *ngIf="feedbackForm.get('subject')?.invalid">Subject max 40 chars</mat-error>
+    </mat-form-field> <br>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Comments</mat-label>
+      <textarea matInput formControlName="comments" rows="4" maxlength="350"></textarea>
+      <mat-hint align="end">{{feedbackForm.get('comments')?.value?.length || 0}} / 350</mat-hint>
+      <mat-error *ngIf="feedbackForm.get('comments')?.invalid">Comments required (max 350)</mat-error>
+    </mat-form-field><br>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="feedbackForm.invalid">
+      Submit
+    </button>
+  </form>
+
+  <div *ngIf="submitted" class="thankyou">
+    <p>✅ Thank you! We will get back to you shortly.</p>
+  </div>
+</mat-card>
