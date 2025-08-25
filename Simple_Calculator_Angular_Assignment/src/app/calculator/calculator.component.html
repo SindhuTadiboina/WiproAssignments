@@ -1,0 +1,51 @@
+<div class="container text-center mt-5">
+  <div class="card shadow-lg p-4">
+    <h2 class="mb-4"> Simple Calculator</h2>
+
+    <!-- number 1 -->
+    <div class="mb-3">
+      <label for="num1" class="form-label fw-bold">Number 1</label>
+      <div class="input-group">
+        <button class="btn btn-outline-primary" (click)="decrement1()">-</button>
+        <input 
+          id="num1" 
+          type="number" 
+          class="form-control text-center" 
+          [(ngModel)]="num1"
+          placeholder="Enter first number" 
+          title="Enter first number">
+        <button class="btn btn-outline-primary" (click)="increment1()">+</button>
+      </div>
+    </div>
+
+    <!-- number 2 -->
+    <div class="mb-3">
+      <label for="num2" class="form-label fw-bold">Number 2</label>
+      <div class="input-group">
+        <button class="btn btn-outline-primary" (click)="decrement2()">-</button>
+        <input 
+          id="num2" 
+          type="number" 
+          class="form-control text-center" 
+          [(ngModel)]="num2"
+          placeholder="Enter second number" 
+          title="Enter second number">
+        <button class="btn btn-outline-primary" (click)="increment2()">+</button>
+      </div>
+    </div>
+
+    <!-- Operation Buttons -->
+    <div class="d-flex justify-content-center gap-2 mb-3 flex-wrap">
+      <button class="btn btn-success" (click)="add()">Add</button>
+      <button class="btn btn-warning" (click)="subtract()">Subtract</button>
+      <button class="btn btn-info" (click)="multiply()">Multiply</button>
+      <button class="btn btn-danger" (click)="divide()">Divide</button>
+      <button class="btn btn-secondary" (click)="reset()">Reset</button>
+    </div>
+
+    <!-- Result button -->
+    <div *ngIf="result !== null" class="alert alert-primary fs-4 fw-bold">
+      Result: {{ result }}
+    </div>
+  </div>
+</div>
